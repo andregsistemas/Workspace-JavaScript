@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript</title>
+        <script>
+            
+            var P1 = prompt('Digite a nota da P1 do aluno')
+            var P2 = prompt('Digite a nota da P2 do aluno')
+            var media = (parseFloat(P1) + parseFloat(P2))/2
+            
+            var faltas = prompt('Quantas faltas o aluno teve?')
+            var faltas_maximas = 15
+
+            //parseInt(faltas) = faltas
+
+            document.write("P1 = " + P1 + '<br>')
+            document.write("P2 = " + P2 + '<br>')
+            document.write("Média = " + media + '<br>')
+            document.write("Número de faltas = " + faltas + '<br>')
+
+            if(media >= 7.0 && faltas <= faltas_maximas){
+                document.write('Aprovado! ')
+                document.write('Sua média final de foi ' + media.toString() + ' e suas faltas foram ' +faltas)
+            }else{
+                document.write('Reprovado! ')
+                document.write('Sua média final de foi ' + media.toString() + ', porém, suas faltas foram ' +faltas)
+            }
+            //Para converter String em número inteiro parseInt("variavel")
+            //Para converter String em número fracionado parseFloat("variavel")
+            //Para converter número inteiro ou fracionado em String variavel.toString() 
+        </script>
+    </head>
+    <body>
+       
+    </body>
+</html>
