@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora</title>
+
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        
+            
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <br>
+
+                    <div class="calculadora">
+                        <input id="resultado" type="text" class="resultado form-control" placeholder="0" disabled="disabled">
+
+                        <div class="row">
+                            <button onclick="calcular('acao','c')" type="button" class="clear btn btn-dark btn-lg font-weight-light">C</button>
+                            <button onclick="calcular('acao','/')" type="button" class="btn btn-dark btn-lg font-weight-light">/</button>
+                            <button onclick="calcular('acao','*')" type="button" class="btn btn-dark btn-lg font-weight-light">x</button>
+                        </div>
+
+                        <div class="row">
+                            <button onclick="calcular('valor', 7)" type="button" class="btn btn-dark btn-lg font-weight-light">7</button>
+                            <button onclick="calcular('valor', 8)" type="button" class="btn btn-dark btn-lg font-weight-light">8</button>
+                            <button onclick="calcular('valor', 9)" type="button" class="btn btn-dark btn-lg font-weight-light">9</button>
+                            <button onclick="calcular('acao','-')" type="button" class="btn btn-dark btn-lg font-weight-light">-</button>
+                        </div>
+
+                        <div class="row">
+                            <button onclick="calcular('valor', 4)" type="button" class="btn btn-dark btn-lg font-weight-light">4</button>
+                            <button onclick="calcular('valor', 5)" type="button" class="btn btn-dark btn-lg font-weight-light">5</button>
+                            <button onclick="calcular('valor', 6)" type="button" class="btn btn-dark btn-lg font-weight-light">6</button>
+                            <button onclick="calcular('acao','+')" type="button" class="btn btn-dark btn-lg font-weight-light">+</button>
+                        </div>
+
+                        <div class="row">
+                            <button onclick="calcular('valor', 1)" type="button" class="btn btn-dark btn-lg font-weight-light">1</button>
+                            <button onclick="calcular('valor', 2)" type="button" class="btn btn-dark btn-lg font-weight-light">2</button>
+                            <button onclick="calcular('valor', 3)" type="button" class="btn btn-dark btn-lg font-weight-light">3</button>
+                            <button onclick="calcular('acao','=')" type="button" class="enter btn btn-dark btn-lg">=</button>
+                        </div>
+
+                        <div class="row" style="margin-top: -60px">
+                            <button onclick="calcular('valor', 0)" type="button" class="zero btn btn-dark btn-lg font-weight-light">0</button>
+                            <button onclick="calcular('acao','.')" type="button" class="btn btn-dark btn-lg font-weight-light">.</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/script.js"></script>
+    </body>
+</html>
