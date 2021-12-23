@@ -4,19 +4,30 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Evento - Teclado</title>
+        <title>DOM - Manipulando estilos de elementos</title>
 
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <script src="../js/script.js"></script>
-
+            
     </head>
-    <body onscroll="console.log('Evento onscroll disparado')"  ><!--onresize="console.log('Evento onresize disparado')"-->
-     
-        <div style="height: 3000px; width: 125px; background: #CCC"></div>
+    <body>
+        
+        <h3>Manipulando estilos</h3>
+
+        <button type="button" class = "btn btn-danger" onclick ="modificaEstilo('#FF0000','200px')" >Vermelho</button>
+        <button type="button" class = "btn btn-success" onclick ="modificaEstilo('#00FF00','150px','20px' )">Verde</button>
+        <button type="button" class = "btn btn-primary" onclick ="modificaEstilo('#0000FF','150px','200px')">Azul</button>
+
+        <hr>
+
+        <div id="quadrado">
+            
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="../js/bootstrap.min.js"></script>
+        
     </body>
 </html>
