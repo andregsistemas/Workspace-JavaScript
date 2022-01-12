@@ -1,0 +1,52 @@
+/*Plano de Fundo do navegador*/
+body{
+    background-image:url(../img/bg.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+/*Tamanho da imagem*/
+
+.mosquito1{
+    width: 50px;
+    height: 50px;
+}
+
+.mosquito2{
+    width: 70px;
+    height: 70px;
+}
+
+.mosquito3{
+    width: 90px;
+    height: 90px;
+}
+
+/*Sentido da imagem*/
+
+.ladoA{
+    transform:scaleX(1);
+}
+
+.ladoB{
+    transform:scaleX(-1)
+}
+/*Configuração da div classe painel*/
+.painel{
+    position: absolute;
+    width: 190px;
+    padding: 10px;
+    bottom: 0px;
+    border-top: 1px solid #fff;
+    background-color: #fff;
+    opacity: 0.7;
+}
+/*Configuração da div classe vidas*/
+.vidas{
+    float: left;
+}
+/*Configuração da div classe cronometro*/
+.cronometro{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+}
