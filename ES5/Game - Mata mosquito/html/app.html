@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game - Mata mosquito</title>
+
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <script src="../js/script.js"></script>
+            
+    </head>
+    <body onresize="redimencionaJanela()">
+
+        <!--Painel de Vida e tempo-->
+        <div class = "painel">
+            <div class = "vidas">
+                <img id = 'v1' src="../img/coracao_cheio.png">
+                <img id = 'v2' src="../img/coracao_cheio.png">
+                <img id = 'v3' src="../img/coracao_cheio.png">
+            </div>
+            <div class = "cronometro">Tempo restante:
+                <span id="cronometro"></span>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            //
+            document.getElementById('cronometro').innerHTML = tempo
+            /*
+                Metodo posicaoRandomica será invocado a cada 1000 milissegundos será
+                exibido na janela do navegador um mosquito por segundo em
+                posições aleatórias. 
+            */
+            var criaMosca = setInterval(function(){
+                posicaoRandomica()
+            }, criaMoscaTempo)
+        </script>
+        
+    </body>
+</html>
