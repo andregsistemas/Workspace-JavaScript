@@ -44,7 +44,7 @@ if(true){
 }
 console.log(serie)
 
-*/
+
 
 if(true){
     let serie = 'Friends' //Variavel declarada localmente
@@ -52,8 +52,29 @@ if(true){
 }
 
 console.log(serie)
-/*
+
     Devido a variavel estar declarada
     localmente utilizando o let, ela não pode ser
     acessada globalmente.
+
+
+var serie = 'Friends'
+{
+    var serie = 'The Walking Dead'
+    console.log('dentro do bloco: ' + serie)
+}
+console.log('fora do bloco: ' + serie)
+
+//A variável do bloco interno substituiu a de escopo global
 */
+//Agora o mesmo exemplo anterior usando let
+
+let serie = 'Friends'
+{
+    let serie = 'The Walking Dead'
+    console.log('dentro do bloco: ' + serie)
+}
+console.log('fora do bloco: ' + serie)
+
+
+//A variavel let conserva o contexto do bloco

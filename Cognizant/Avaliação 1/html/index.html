@@ -5,8 +5,8 @@
       <title>Test 001</title>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"
               integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+              
       
-      <script src="../js/script.js"> </script>
   </head>
   <body>
   <h1>
@@ -20,11 +20,13 @@
       <button></button>
   </div>
   <script>
+    
     $('#buttons').find('button').each(function () {
       $(this).text('xxxx-xxxx-xxxx'.replace(/x/g, function () {
         return Math.floor(Math.random() * 16).toString(16);
       }))
     })
   </script>
+  <script src="../js/script.js"> </script>
   </body>
 </html>
