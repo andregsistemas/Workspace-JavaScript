@@ -35,8 +35,32 @@ class BD{
     gravar(d){ //Metodo despesa
        // localStorage.setItem('despesa', JSON.stringify(d))
        let id = this.getProximoId()
-        localStorage.setItem(id, JSON.stringify(d))
+        localStorage.setItem(id, JSON.stringify(d)) //converte um objet em strinng sando a biblioteca JSON
         localStorage.setItem('id', id)
+    }
+
+    recuperartodosRegistros(){ //Metodo para recuperar registros
+        
+        //Array de despesas
+        let despesas = Array()
+        
+        let id = localStorage.getItem('id')
+
+        //Recuperar todas as despesas cadastradas em localStorage
+        for(let i = 1; i <= id; i++){
+            
+            //recuperar Despesas
+            let despesa = JSON.parse(localStorage.getItem(i))
+
+            //verificar se existe a possibilidade de haver indices que foram plados ou removidos, nestes casos nós vmos pular esses índices
+            if(despesa === null){
+                continue// quando identificado pelo interpretdor dentro de uma estrutra de laço faz com que o ele avançe para ineração seguinte desconsiderndo tdo que estiver abaixo. 
+            }
+
+            despesas.push(despesa)
+        }
+
+        return despesas
     }
 }
 
@@ -83,4 +107,50 @@ function cadastrarDespesa(){
        $('#modalRegistroDespesa').modal('show')
     }
 
+}
+
+function carregaListaDespesas() {
+    let despesas = Array()
+
+    despesas = bd.recuperartodosRegistros()
+
+    //Selecionado o elemento tbody da tabela
+    var listaDespesas = document.getElementById('listaDespesas')
+    /*<tr>
+                <td>15/03/2018</td>
+                <td>Alimentação</td>
+                <td>Compras do mês</td>
+                <td>444.75</td>
+        </tr>
+    */
+
+    //Percorrer o array despesas, listando cada despesa de forma dinâmica
+    despesas.forEach(function(d){
+
+        //criando a linha da tabela(tr)
+        let linha = listaDespesas.insertRow()
+
+        //Criando as colunas(td)
+        linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`  
+        
+        //ajustar o tipo
+        switch(d.tipo){
+            case'1': d.tipo = "Alimentação"
+                break
+            case'2': d.tipo = "Educação"
+                break
+            case'3': d.tipo = "Lazer"
+                break
+            case'4': d.tipo = "Saúde"
+                break
+            case'5': d.tipo = "transporte"
+                break
+        }
+
+        linha.insertCell(1).innerHTML = d.tipo
+        linha.insertCell(2).innerHTML = d.descricao
+        linha.insertCell(3).innerHTML = d.valor
+
+    })
+    
 }
