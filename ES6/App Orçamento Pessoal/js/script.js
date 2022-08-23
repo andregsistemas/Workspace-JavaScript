@@ -39,7 +39,7 @@ class BD{
         localStorage.setItem('id', id)
     }
 
-    recuperartodosRegistros(){ //Metodo para recuperar registros
+    recuperarTodosRegistros(){ //Metodo para recuperar registros
         
         //Array de despesas
         let despesas = Array()
@@ -61,6 +61,52 @@ class BD{
         }
 
         return despesas
+    }
+
+    pesquisar(despesa){
+        
+        let despesasFiltradas = Array()
+
+        despesasFiltradas = this.recuperarTodosRegistros()
+
+        
+        console.log(despesa)
+
+        console.log(despesasFiltradas)
+
+        //Filtro de campos
+        
+        //ano
+        if(despesa.ano != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+        }
+        
+        //mes
+        if(despesa.mes != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+        }
+
+        //dia
+        if(despesa.dia != ''){
+           despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+        }
+
+        //tipo
+        if(despesa.tipo != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo) 
+        }
+
+        //descricao
+        if(despesa.descricao != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+        }
+
+        //valor
+         if(despesa.valor != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
+        }
+
+        console.log(despesasFiltradas)
     }
 }
 
@@ -93,8 +139,16 @@ function cadastrarDespesa(){
         document.getElementById('modal_btn').innerHTML = 'voltar'
         document.getElementById('modal_btn').className = 'btn btn-success'
 
-        //dialogo de suceesso
+        //dialogo de sucesso
         $('#modalRegistroDespesa').modal('show')
+        
+        //limpar campos de inserção
+        ano.value = ''
+        mes.value = ''
+        dia.value = ''
+        tipo.value = ''
+        valor.value = ''
+
     }else{
         //controle modal para erro
         document.getElementById('modal_titulo').innerHTML='Erro na inclusão do Registro!'
@@ -112,7 +166,7 @@ function cadastrarDespesa(){
 function carregaListaDespesas() {
     let despesas = Array()
 
-    despesas = bd.recuperartodosRegistros()
+    despesas = bd.recuperarTodosRegistros()
 
     //Selecionado o elemento tbody da tabela
     var listaDespesas = document.getElementById('listaDespesas')
@@ -153,4 +207,17 @@ function carregaListaDespesas() {
 
     })
     
+}
+
+function pesquisarDespesa(){
+    let ano = document.getElementById('ano').value
+    let mes = document.getElementById('mes').value
+    let dia = document.getElementById('dia').value
+    let tipo = document.getElementById('tipo').value
+    let descricao = document.getElementById('descricao').value
+    let valor = document.getElementById('valor').value
+
+    let despesa = new Despesa(ano, mes, dia,tipo, descricao, valor)
+
+    bd.pesquisar(despesa)
 }
