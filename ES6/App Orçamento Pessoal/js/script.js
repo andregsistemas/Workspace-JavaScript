@@ -67,7 +67,7 @@ class BD{
         
         let despesasFiltradas = Array()
 
-        despesasFiltradas = this.recuperarTodosRegistros()
+        despesasFiltradas = this.recuperarTodosRegistros() 
 
         
         console.log(despesa)
@@ -106,7 +106,7 @@ class BD{
             despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
         }
 
-        console.log(despesasFiltradas)
+        return despesasFiltradas
     }
 }
 
@@ -163,13 +163,16 @@ function cadastrarDespesa(){
 
 }
 
-function carregaListaDespesas() {
-    let despesas = Array()
-
-    despesas = bd.recuperarTodosRegistros()
+function carregaListaDespesas(despesas = Array(), filtro = false) {
+   
+    if(despesas.length == 0 && filtro == false) {
+        despesas = bd.recuperarTodosRegistros()
+    }
 
     //Selecionado o elemento tbody da tabela
-    var listaDespesas = document.getElementById('listaDespesas')
+    let listaDespesas = document.getElementById('listaDespesas')
+    listaDespesas.innerHTML = ''
+
     /*<tr>
                 <td>15/03/2018</td>
                 <td>Alimentação</td>
@@ -219,5 +222,8 @@ function pesquisarDespesa(){
 
     let despesa = new Despesa(ano, mes, dia,tipo, descricao, valor)
 
-    bd.pesquisar(despesa)
+    let despesas = bd.pesquisar(despesa)
+
+    carregaListaDespesas(despesas, true)
+
 }
